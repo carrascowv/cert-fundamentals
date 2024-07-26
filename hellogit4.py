@@ -1,2 +1,1 @@
-hola 4 cambio main y login
-no me importa stash
+hola 4 cambio main y login merge stash
