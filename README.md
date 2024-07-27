@@ -6,3 +6,4 @@ ang
 dig
 nan
 wal
+ric
