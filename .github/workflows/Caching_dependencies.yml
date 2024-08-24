@@ -2,7 +2,8 @@ name: Caching dependencies
 run-name: ${{ github.actor }} is testing out Caching dependencies 🚀
 on: [push]
 jobs:
-  example-job:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
     steps:
       - name: Cache node modules
         uses: actions/cache@v3
