@@ -2,17 +2,12 @@ name: GitHub Actions Creating_dependent_jobs
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - run: ./setup_server.sh
   build:
-    needs: setup
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16]
     steps:
-      - run: ./build_server.sh
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: ./test_server.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
