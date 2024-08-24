@@ -1,0 +1,20 @@
+name: Using_db_and_service_containers
+run-name: ${{ github.actor }} is testing out Using_db_and_service_containers 🚀
+on: [push]
+jobs:
+  container-job:
+    runs-on: ubuntu-latest
+    container: node:10.18-jessie
+    services:
+      postgres:
+        image: postgres
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Connect to PostgreSQL
+        run: node client.js
+        env:
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
