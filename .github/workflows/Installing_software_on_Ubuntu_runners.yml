@@ -1,0 +1,13 @@
+name: Build on Ubuntu - Installing_software_on_Ubuntu_runners
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install jq tool
+        run: |
+          sudo apt-get update
+          sudo apt-get install jq
