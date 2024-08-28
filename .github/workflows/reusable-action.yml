@@ -1,0 +1,26 @@
+# .github/workflows/reusable-action.yml
+name: Reusable Action
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+      greeting:
+        required: false
+        type: string
+        default: 'Hello'
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Print greeting
+        run: echo "${{ inputs.greeting }} ${{ inputs.name }}!"
