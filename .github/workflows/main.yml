@@ -1,0 +1,16 @@
+# .github/workflows/main.yml
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-reusable-action:
+    uses: owner/reusable-action-repo/.github/workflows/reusable-action.yml@main
+    with:
+      name: 'World'
+      greeting: 'Hi'
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
